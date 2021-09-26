@@ -8,7 +8,7 @@ module.exports.createUser = async (req, res) => {
 	try {
 		sendWelcomeEmail(user.email, user.name)
 		const token = await user.generateAuthToken();
-		await user.save()
+		// await user.save()
 		// user.save() is called in generateAuthToken()
 		res.status(201).send({user, token});
 	} catch(e) {
